@@ -35,17 +35,20 @@ const CardItem: React.FC<Item> = (props) => {
         <h2>{props.title}</h2>
         <img src={props.image} alt="" />
 
-        <div className="likerbox" onClick={handleLikeClick}>
-          <input
-            id="heart"
-            className="isLikeCheckbox"
-            type="checkbox"
-            checked={props.isLike}
-            onChange={handleLikeClick}
-          />
-          <label htmlFor="heart"></label>
+        <div className="iconbox">
+          <div className="likerbox" onClick={handleLikeClick}>
+            <input
+              id="heart"
+              className="isLikeCheckbox"
+              type="checkbox"
+              checked={props.isLike}
+              onChange={handleLikeClick}
+            />
+            <label htmlFor="heart"></label>
+          </div>
+          <span onClick={handleDeleteClick}>🗑️</span>
         </div>
-        <span onClick={handleDeleteClick}>🗑️</span>
+
         <p>{props.description}</p>
       </div>
     </>

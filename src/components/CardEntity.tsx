@@ -23,13 +23,26 @@ const CardEntity = () => {
     <>
       <Link to={"/d24-test/"}>Co Back To list</Link>
       <h2>{item?.title}</h2>
-      <img src={item?.image} alt="" />
-      <input
+      <img className="entityImg" src={item?.image} alt="" />
+      {/* <input
         type="checkbox"
         checked={item?.isLike}
         onChange={() => dispatch(toggleItem(item?.id ?? ""))}
-      />
-      <p>{item?.description}</p>
+      /> */}
+      <div
+        className="likerboxEntity"
+        onClick={() => dispatch(toggleItem(item?.id ?? ""))}
+      >
+        <input
+          id="heart"
+          className="isLikeCheckbox"
+          type="checkbox"
+          checked={item?.isLike}
+          onChange={() => dispatch(toggleItem(item?.id ?? ""))}
+        />
+        <label htmlFor="heart"></label>
+      </div>
+      <p className="entityDescription">{item?.description}</p>
     </>
   );
 };
