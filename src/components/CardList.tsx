@@ -26,24 +26,16 @@ const CardList = () => {
       {toggle ? (
         <div className="cardList">
           {list.map((item) => (
-            // <Link key={item.id} to={`/${item.id}`}>
             <CardItem key={item.id} {...item} />
-            // </Link>
           ))}
         </div>
       ) : (
         <div className="cardList">
           {likeList.map((item) => (
-            // <Link key={item.id} to={`/${item.id}`}>
             <CardItem key={item.id} {...item} />
-            // </Link>
           ))}
         </div>
       )}
-
-      {/* <CardItem />
-      <CardItem />
-      <CardItem /> */}
     </>
   );
 };

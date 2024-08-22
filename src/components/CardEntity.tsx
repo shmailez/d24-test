@@ -21,7 +21,7 @@ const CardEntity = () => {
 
   return (
     <>
-      <Link to={"/"}>Co Back To list</Link>
+      <Link to={"/d24-test/"}>Co Back To list</Link>
       <h2>{item?.title}</h2>
       <img src={item?.image} alt="" />
       <input

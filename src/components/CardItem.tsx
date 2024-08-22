@@ -16,7 +16,7 @@ const CardItem: React.FC<Item> = (props) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/${props.id}`);
+    navigate(`/d24-test/${props.id}`);
   };
 
   const handleLikeClick = (e: { stopPropagation: () => void }) => {
@@ -46,7 +46,6 @@ const CardItem: React.FC<Item> = (props) => {
           <label htmlFor="heart"></label>
         </div>
         <span onClick={handleDeleteClick}>🗑️</span>
-        {/* <button onClick={handleDeleteClick}>🗑️</button> */}
         <p>{props.description}</p>
       </div>
     </>

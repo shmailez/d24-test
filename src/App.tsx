@@ -16,8 +16,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<BasePage />} />
-        <Route path="/:id" element={<CardPage />} />
+        <Route path="/d24-test/" element={<BasePage />} />
+        <Route path="/d24-test/:id" element={<CardPage />} />
       </Routes>
     </>
   );
