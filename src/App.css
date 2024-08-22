@@ -37,7 +37,10 @@
 
 .cardItem p{
   margin: 12px;
-  max-height: 40px;
+  max-height: 45px;
+  /* white-space: nowrap;  */
+    overflow: hidden;
+  text-overflow: ellipsis
 }
 
 .iconbox {

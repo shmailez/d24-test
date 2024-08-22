@@ -11,16 +11,16 @@ type Item = {
 type ItemState = {
     list: Item[];
     loading: boolean;
-    error: string | null;
+    error: string | undefined;
   }
 
 const initialState: ItemState = {
     list: [],
     loading: false,
-    error: null,
+    error: undefined,
   }
 
-export const fetchCardList = createAsyncThunk(
+export const fetchCardList = createAsyncThunk<Item[], undefined, {rejectValue: string}>(
     'list/fetchCardList',
     async function(_, {rejectWithValue}) {
 
@@ -36,7 +36,8 @@ export const fetchCardList = createAsyncThunk(
             return data
         }
         catch (error:unknown) {
-            return rejectWithValue(error)
+            console.log(error)
+            return rejectWithValue("EROOOR")
         }
         
     }
@@ -89,10 +90,18 @@ const CardList = createSlice({
     reducers: {},
     extraReducers(builder) {
         builder
+        .addCase(fetchCardList.pending, (state) => {
+          state.loading = true;
+          state.error = undefined;
+        })
         .addCase(fetchCardList.fulfilled, (state, action) => {
             state.list = action.payload;
             state.loading = false;
         })
+        builder.addCase(fetchCardList.rejected, (state, action) => {
+          state.error = action.error.message;
+          state.loading = false;
+      });
     }
 })
 
